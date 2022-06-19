@@ -1,0 +1,25 @@
+{
+  "name": "tell_me_hwi-to-do",
+  "version": "1.0.0",
+  "description": "휘는 무얼해야 할까요?",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/songhwee1/Tell_me_Hwi-to-do.git"
+  },
+  "author": "songhwee1",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/songhwee1/Tell_me_Hwi-to-do/issues"
+  },
+  "homepage": "https://github.com/songhwee1/Tell_me_Hwi-to-do#readme",
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "nodemon": "^2.0.16"
+  }
+}
