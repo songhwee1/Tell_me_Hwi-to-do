@@ -1,12 +1,73 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko-kr">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <title>휘랑 약속잡는 사이트 ^~^</title>
 </head>
 <body>
-  <h1>Tell me Hwi to-do</h1>
+  <h1 style="text-align: center; font-size: 50px;">Tell me Hwi to-do</h1>
+  <div class="container" style="display: flex; justify-content: center;">
+    <div class="my-calendar clearfix">
+      <div class="clicked-date">
+        <div class="cal-day"></div>
+        <div class="cal-date" id="date"></div>
+      </div>
+      <div class="calendar-box">
+        <div class="ctr-box clearfix">
+          <button type="button" title="prev" class="btn-cal prev">
+          </button>
+          <span class="cal-month" id="month"></span>
+          <span class="cal-year"></span>
+          <button type="button" title="next" class="btn-cal next">
+          </button>
+        </div>
+        <table class="cal-table">
+          <thead>
+            <tr>
+              <th>S</th>
+              <th>M</th>
+              <th>T</th>
+              <th>W</th>
+              <th>T</th>
+              <th>F</th>
+              <th>S</th>
+            </tr>
+          </thead>
+          <tbody class="cal-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div style="text-align: center;">
+    <a id="name"></a>
+    <a id="day"></a>
+    <input id="task" name="task" placeholder="데이트" style="font-size: large; text-align: center;"></input>
+    <input type="button" value="할거에요" onclick="saveTodo()"></input>
+  </div>
+  <% todo.map(item => { %>
+    <tr>
+      <td>이름: <%= item.name %> </td>
+      <td>일정: <%= item.todo %> </td>
+      <td>날짜: <%= item.month %>월 <%= item.day %>일</td>
+    </tr>
+  <% }) %> 
 </body>
+<script src="/js/calender.js"></script>
+<script>
+  name = prompt("당신은 누구신가요?")
+  if (name !== '') {
+    document.querySelector('#name').innerHTML = `${name}님은 휘랑`
+  } else {
+    alert("이름을 입력해주세요!!!")
+    location.reload()
+  }
+
+  function saveTodo(){
+    console.log(name)
+    console.log(day,month)
+  }
+</script>
 </html>
