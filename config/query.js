@@ -14,6 +14,22 @@ function LoadTodoList(callback) {
   });
 }
 
+function SaveTodoList(name, month, day, todo, callback) {
+  const SQL = `INSERT INTO list (name, month, day, todo) VALUES (?, ?, ?, ?)`;
+  const VALUES = [name, month, day, todo];
+
+  con.query(SQL, VALUES, (err, result, field) => {
+    if (err) {
+      console.log(err);
+      callback('err');
+    }
+    else {
+      callback(result);
+    }
+  });
+}
+
 module.exports = {
-  LoadTodoList
+  LoadTodoList,
+  SaveTodoList
 }

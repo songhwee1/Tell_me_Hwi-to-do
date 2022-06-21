@@ -5,6 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <title>휘랑 약속잡는 사이트 ^~^</title>
 </head>
 <body>
@@ -53,6 +54,7 @@
       <td>일정: <%= item.todo %> </td>
       <td>날짜: <%= item.month %>월 <%= item.day %>일</td>
     </tr>
+    <br>
   <% }) %> 
 </body>
 <script src="/js/calender.js"></script>
@@ -65,9 +67,19 @@
     location.reload()
   }
 
-  function saveTodo(){
-    console.log(name)
-    console.log(day,month)
+  async function saveTodo(){
+    await axios({ 
+      method: 'POST', 
+      url: `/saveTodo`,
+      data: {
+        name: name,
+        month: month,
+        day: day,
+        todo: document.querySelector('#task').value
+      }
+    })
+    .then((res)=>alert("휘랑 할일 등록 성공!"), location.reload())
+    .catch((err)=> err.response.data)
   }
 </script>
 </html>
