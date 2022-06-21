@@ -60,7 +60,7 @@
 <script src="/js/calender.js"></script>
 <script>
   name = prompt("당신은 누구신가요?")
-  if (name !== '') {
+  if (name !== 'null' && name !== '') {
     document.querySelector('#name').innerHTML = `${name}님은 휘랑`
   } else {
     alert("이름을 입력해주세요!!!")
